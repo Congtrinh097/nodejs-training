@@ -1,0 +1,52 @@
+extends layout
+
+
+block content
+  script(src='/javascripts/app.js')
+  h1= title
+  a(type="button" href="/add") A new Pet
+  table
+    tr
+      th Id
+      th Name
+      th Avatar 
+      th Description 
+      th CreatedDate 
+      th UpdatedDate 
+      th Action 
+    tr
+      td 1
+      td Mèo
+      td 
+        img.image(src='https://znews-photo-td.zadn.vn/w660/Uploaded/znguhv/2017_10_11/zing_con_meo_hong_kong.jpg' width="80" height="80" alt="Image of Pets")
+      td Còn mèo này màu đen và có 4 chân
+      td 10/10/2018 1:00 PM
+      td 10/102018  2:00 PM
+      td 
+         a(href="/" onClick="deletePet()") Delete
+         a(href="/edit") Edit
+    tr
+    tr
+      td 2
+      td Mèo
+      td
+        img.image(src='https://znews-photo-td.zadn.vn/w660/Uploaded/znguhv/2017_10_11/zing_con_meo_hong_kong.jpg' width="80" height="80" alt="Image of Pets")
+      td Còn mèo này màu đen và có 4 chân
+      td 10/10/2018 1:00 PM
+      td 10/102018  2:00 PM
+      td 
+        a(href="/" onClick="deletePet()") Delete
+        a(href="/edit") Edit
+    tr
+    tr
+      td 3
+      td Chó
+      td 
+        img.image(src='https://znews-photo-td.zadn.vn/w660/Uploaded/znguhv/2017_10_11/zing_con_meo_hong_kong.jpg' width="80" height="80" alt="Image of Pets")
+      td Còn Chó này màu đen và có 4 chân
+      td 10/10/2018 1:00 PM
+      td 10/102018  2:00 PM
+      td 
+        a(href="/" onClick="deletePet()") Delete
+        a(href="/edit") Edit
+    tr
