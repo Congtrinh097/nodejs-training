@@ -26,6 +26,9 @@ block content
         td= value.CreatedDate
         td= value.UpdatedDate
         td 
-          a(href="/" onClick="deletePet()") Delete
-          a(href="/pets/edit/"+value._id) Edit
+          form(method='POST' action='/pets/delete/'+value._id)
+            button(type="submit" onClick="deletePet()") Delete
+          form(method='GET' action='/pets/edit/'+value._id)
+            button(type="submit") Edit
+        
     

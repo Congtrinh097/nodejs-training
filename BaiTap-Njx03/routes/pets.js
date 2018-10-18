@@ -17,4 +17,6 @@ router.post('/update', PetsController.update);
 // Get single pet by id
 router.get('/show/:id', PetsController.show);
 
+router.post('/delete/:id', PetsController.delete);
+
 module.exports = router;

@@ -80,7 +80,7 @@ PetsController.delete = function(req, res) {
       }
       else {
         console.log("Pet deleted!");
-        res.redirect("pets/list");
+        res.redirect("/pets/list");
       }
     });
   };
