@@ -12,4 +12,6 @@ router.get('/login', HomeController.Login);
 /* post login */
 router.post('/login', HomeController.PostLogin);
 
+router.get("/init-user", HomeController.InitUser);
+
 module.exports = router;
