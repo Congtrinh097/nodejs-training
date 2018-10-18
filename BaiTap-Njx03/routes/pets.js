@@ -7,6 +7,8 @@ router.get('/list', PetsController.list);
 /* add a pet */
 router.get('/add',PetsController.create);
 
+/* save a pet */
+router.post('/add', PetsController.save);
 /* edit a pet*/
 
 router.get('/edit/:id', PetsController.update);

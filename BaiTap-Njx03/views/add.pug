@@ -2,17 +2,17 @@ extends layout
 
 block content
   h1= title
-  form(method='POST' action='/add')
+  form(method='POST' action='/pets/add')
     div 
        label(for='Name') Name
        br 
-       input(type='text' id='name' placeholder='Name' name='name')
+       input(type='text' id='name' placeholder='Name' name='Name')
     div 
        label(for='avatar') Avatar
        br 
-       input(type='text' id='avatar' placeholder='Avatar URL' name='avatar')
+       input(type='text' id='avatar' placeholder='Avatar URL' name='Avatar')
     div 
        label(for='description') Description
        br 
-       textarea( id='description' placeholder='Description' name='description')
+       textarea( id='description' placeholder='Description' name='Description')
     button(type='submit') Add

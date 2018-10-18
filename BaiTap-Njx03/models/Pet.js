@@ -3,7 +3,6 @@ var Schema = mongoose.Schema;
 mongoose.connect('mongodb://localhost:27017/myapp');
 // define a schema
 var petSchema = new Schema({
-    Id: String,
     Name: String,
     Avatar: String,
     Description: String,

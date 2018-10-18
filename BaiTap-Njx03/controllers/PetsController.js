@@ -19,7 +19,7 @@ PetsController.list = function(req, res) {
   };
 
 PetsController.show = function(req, res) {
-    Pet.findOne({Id: req.params.id}).exec(function (err, pet) {
+    Pet.findOne({_id: req.params.id}).exec(function (err, pet) {
     if (err) {
     console.log("Error:", err);
     }
@@ -36,12 +36,15 @@ PetsController.create = function(req, res) {
 
 PetsController.save = function(req, res) {
   var pet = new Pet(req.body);
+  pet.CreatedDate = new Date();
+  pet.UpdatedDate = new Date();
+  console.log(pet);
   pet.save(function(err) {
       if(err) {
       console.log(err);
       res.render("../views/add");
       } else {
-      console.log("Successfully created an employee.");
+      console.log("Successfully created an pet.");
       res.redirect("/pets/show/"+pet._id);
       }
   });
