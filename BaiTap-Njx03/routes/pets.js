@@ -11,7 +11,8 @@ router.get('/add',PetsController.create);
 router.post('/add', PetsController.save);
 /* edit a pet*/
 
-router.get('/edit/:id', PetsController.update);
+router.get('/edit/:id', PetsController.edit);
+router.post('/update', PetsController.update);
 
 // Get single pet by id
 router.get('/show/:id', PetsController.show);

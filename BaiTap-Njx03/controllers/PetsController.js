@@ -63,13 +63,14 @@ PetsController.edit = function(req, res) {
 
 
 PetsController.update = function(req, res) {
-Pet.findByIdAndUpdate(req.params.id, { $set: { name: req.body.name, address: req.body.address, position: req.body.position, salary: req.body.salary }}, { new: true }, function (err, pet) {
-    if (err) {
-    console.log(err);
-    res.render("../views/edit", {title: "Edit Pet", pet: req.body});
-    }
-    res.redirect("/pets/show/"+pet._id);
-});
+  console.log("Call here");
+  Pet.findByIdAndUpdate(req.body.id, { $set: { Name: req.body.Name, Avatar: req.body.Avatar, Description: req.body.Description, UpdatedDate: new Date() }}, { new: true }, function (err, pet) {
+      if (err) {
+      console.log(err);
+      res.render("../views/edit", {title: "Edit Pet", pet: req.body});
+      }else
+      res.redirect("/pets/show/" + pet._id);
+  });
 };
 
 PetsController.delete = function(req, res) {
