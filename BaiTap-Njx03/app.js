@@ -5,10 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var petsRouter = require('./routes/pets');
 var mongoose = require('mongoose');
 var app = express();
-var Pet = require("./models/Pet");
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -19,33 +18,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// connect DB 
-app.use(function(req, res, next) {
-  mongoose.connect('mongodb://localhost:27017/myapp');
-  console.log("Connecting to mongo db");
-
-  // create a document
-  var pets = new Pet({
-    Id: "1",
-    Name: "Meo Den",
-    Avatar: "https://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg",
-    Description: "Con cho mau den",
-    CreatedDate: new Date("2018-10-10"),
-    UpdatedDate: new Date("2018-10-11")
-  });
-  Pet.insertMany(pets, function(error, docs) {
-    if(error) {
-      console.log(error);
-    }
-  });
-  Pet.find({},(err,result)=>{
-    console.log(result);
-  })
-  next();
-});
-
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/pets', petsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

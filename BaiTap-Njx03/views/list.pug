@@ -4,7 +4,8 @@ extends layout
 block content
   script(src='/javascripts/app.js')
   h1= title
-  a(type="button" href="/add") A new Pet
+  h1= pets
+  a(type="button" href="/pets/add") A new Pet
   table
     tr
       th Id

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+mongoose.connect('mongodb://localhost:27017/myapp');
 // define a schema
 var petSchema = new Schema({
     Id: String,
@@ -11,6 +12,6 @@ var petSchema = new Schema({
   });
 
 // compile our model
-var Person = mongoose.model('pet', petSchema);
+var Pet = mongoose.model('pet', petSchema);
 
-module.exports = Person;
+module.exports = Pet;
