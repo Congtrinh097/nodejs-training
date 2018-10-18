@@ -1,18 +1,33 @@
 extends layout
 
 block content
-  h1= title
-  form(method='POST' action='/add')
-    div 
-       label(for='Name') Name
-       br 
-       input(type='text' id='name' placeholder='Name' name='name')
-    div 
-       label(for='avatar') Avatar
-       br 
-       input(type='text' id='avatar' placeholder='Avatar URL' name='avatar')
-    div 
-       label(for='description') Description
-       br 
-       textarea( id='description' placeholder='Description' name='description')
-    button(type='submit') Add
+  body
+    h1= title
+      br
+      br 
+      div 
+        label Name:
+        p1=pet.Name
+      div 
+        label Avatar
+        br 
+        - var url= pet.Avatar 
+        img.image(src=url width="160" height="160" alt="Image of Pets")
+      br 
+      div 
+        label Description
+        br 
+        p1=pet.Description
+      br 
+      div 
+        label CreatedDate
+        br 
+        p1=pet.CreatedDate
+      br 
+      div 
+        label UpdatedDate
+        br 
+        p1=pet.UpdatedDate
+      br 
+    a(href="/pets/list") Back to list
+    

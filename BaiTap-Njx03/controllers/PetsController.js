@@ -24,7 +24,7 @@ PetsController.show = function(req, res) {
     console.log("Error:", err);
     }
     else {
-    res.render("../views/detail", {title: 'Detail', pet: pet});
+    res.render("../views/detail", {title: 'Detail of pet', pet: pet});
     }
 });
 };
