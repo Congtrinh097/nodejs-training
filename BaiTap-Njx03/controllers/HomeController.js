@@ -26,12 +26,27 @@ HomeController.PostLogin = function(req, res) {
         }
         if (userreq.Password === user.Password) {
             console.log("REDIRECT TO LIST");
+            req.session.isLogin = true;
             res.redirect("/pets/list");
         } else {
             console.log("REDIRECT TO HOME 2");
             res.redirect("/");
         }
     });
+}
+
+HomeController.Logout = function(req, res) {
+    if (req.session) {
+      // delete session object
+      req.session.destroy(function(err) {
+        if(err) {
+            console.log("Logout error")
+            return res.redirect('/');
+        } else {
+            return res.redirect('/login');
+        }
+      });
+    }
 }
 
 HomeController.InitUser = function(req, res) {

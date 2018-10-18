@@ -6,12 +6,5 @@ router.get('/', HomeController.Index);
 
 /* GET home page. */
 router.get('/index', HomeController.Index);
-/* GET login. */
-router.get('/login', HomeController.Login);
-
-/* post login */
-router.post('/login', HomeController.PostLogin);
-
-router.get("/init-user", HomeController.InitUser);
-
+router.get('/logout', HomeController.Logout);
 module.exports = router;
