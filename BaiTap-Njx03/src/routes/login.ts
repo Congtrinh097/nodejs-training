@@ -1,4 +1,4 @@
-var express = require('express');
+import * as express from "express";
 var router = express.Router();
 var HomeController = require('../controllers/HomeController');
 

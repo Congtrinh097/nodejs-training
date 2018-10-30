@@ -8,6 +8,4 @@ var userSchema = new Schema({
   });
 
 // compile our model
-var User = mongoose.model('user', userSchema);
-
-module.exports = User;
+export default mongoose.model('user', userSchema);

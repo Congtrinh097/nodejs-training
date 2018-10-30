@@ -2,11 +2,11 @@
  * GET employees listing.
  */
 
-var Pet = require('../models/Pet');
-var PetsController = {};
+import Pet from "../models/Pet";
+var PetsController:any = {};
 
-PetsController.list = function(req, res) {
-    Pet.find({}).exec(function (err, pets) {
+PetsController.list = function(_req:any, res:any) {
+    Pet.find({}).exec(function (err: any, pets: any) {
       console.log("LIST PETS: ");
       console.log(pets);
       if (err) {
@@ -18,8 +18,8 @@ PetsController.list = function(req, res) {
     });
   };
 
-PetsController.show = function(req, res) {
-    Pet.findOne({_id: req.params.id}).exec(function (err, pet) {
+PetsController.show = function(req:any, res:any) {
+    Pet.findOne({_id: req.params.id}).exec(function (err:any, pet:any) {
     if (err) {
     console.log("Error:", err);
     }
@@ -29,17 +29,17 @@ PetsController.show = function(req, res) {
 });
 };
 
-PetsController.create = function(req, res) {
+PetsController.create = function(_req:any, res:any) {
     res.render("../views/add", {title: "Add new pet"});
   };
 
 
-PetsController.save = function(req, res) {
+PetsController.save = function(req:any, res:any) {
   var pet = new Pet(req.body);
   pet.CreatedDate = new Date();
   pet.UpdatedDate = new Date();
   console.log(pet);
-  pet.save(function(err) {
+  pet.save(function(err:any) {
       if(err) {
       console.log(err);
       res.render("../views/add");
@@ -50,8 +50,8 @@ PetsController.save = function(req, res) {
   });
 };
 
-PetsController.edit = function(req, res) {
-    Pet.findOne({_id: req.params.id}).exec(function (err, pet) {
+PetsController.edit = function(req:any, res:any) {
+    Pet.findOne({_id: req.params.id}).exec(function (err:any, pet:any) {
       if (err) {
         console.log("Error:", err);
       }
@@ -62,9 +62,9 @@ PetsController.edit = function(req, res) {
   };
 
 
-PetsController.update = function(req, res) {
+PetsController.update = function(req:any, res:any) {
   console.log("Call here");
-  Pet.findByIdAndUpdate(req.body.id, { $set: { Name: req.body.Name, Avatar: req.body.Avatar, Description: req.body.Description, UpdatedDate: new Date() }}, { new: true }, function (err, pet) {
+  Pet.findByIdAndUpdate(req.body.id, { $set: { Name: req.body.Name, Avatar: req.body.Avatar, Description: req.body.Description, UpdatedDate: new Date() }}, { new: true }, function (err:any, pet:any) {
       if (err) {
       console.log(err);
       res.render("../views/edit", {title: "Edit Pet", pet: req.body});
@@ -73,8 +73,8 @@ PetsController.update = function(req, res) {
   });
 };
 
-PetsController.delete = function(req, res) {
-    Pet.remove({_id: req.params.id}, function(err) {
+PetsController.delete = function(req:any, res:any) {
+    Pet.remove({_id: req.params.id}, function(err:any) {
       if(err) {
         console.log(err);
       }

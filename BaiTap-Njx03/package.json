@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "eslint": "eslint ./src"
+    "eslint": "eslint ./src",
+    "build": "tsc"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
@@ -17,6 +19,7 @@
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
+    "@types/express": "^4.16.0",
     "eslint": "^5.8.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0"

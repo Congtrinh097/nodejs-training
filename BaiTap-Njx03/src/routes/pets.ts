@@ -1,4 +1,4 @@
-var express = require('express');
+import * as express from "express";
 var router = express.Router();
 var PetsController = require('../controllers/PetsController');
 /* GET list pet */
