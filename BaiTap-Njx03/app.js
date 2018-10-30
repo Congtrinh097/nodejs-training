@@ -5,12 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 
-var indexRouter = require('./routes/index');
-var petsRouter = require('./routes/pets');
-var loginRouter = require('./routes/login');
+var indexRouter = require('./src/routes/index');
+var petsRouter = require('./src/routes/pets');
+var loginRouter = require('./src/routes/login');
 var app = express();
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
