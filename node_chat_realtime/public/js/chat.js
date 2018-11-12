@@ -21,4 +21,20 @@ $(function () {
             $('#message').val('');
         }
     })
+
+    $("#message").on('keyup', function (e) {
+            if (e.keyCode == 13) {
+                var username = $('#username').val();
+            var message = $('#message').val();
+
+            if (username == '' || message == '') {
+                alert('Please enter name and message!!');
+            } else {
+                //Gửi dữ liệu cho socket
+                socket.emit('send', {username: username, message: message});
+                $('#message').val('');
+            }
+        }
+    });
 })
+
