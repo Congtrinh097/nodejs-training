@@ -1,5 +1,6 @@
 let createError = require('http-errors');
 import * as express from "express";
+import Auth from "./auth";
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -27,18 +28,10 @@ const sess = {
 app.use(session(sess));
 app.use('/', loginRouter);
 // login midleware
-app.use((req:any, res:any, next:any) => {
-  console.log(req.session.isLogin);
-  if (!req.session.isLogin) {
-    console.log('User not loged in');
-    res.redirect('/login');
-  }
-  console.log('Next urls will go');
-  next();
-});
+
 // add route midleware
 app.use('/', indexRouter);
-app.use('/pets', petsRouter);
+app.use('/pets', Auth.requiredLogin, petsRouter);
 
 // catch 404 and forward to error handler
 app.use((next:any) => {
